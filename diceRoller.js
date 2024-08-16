@@ -19,21 +19,34 @@ function rollDice(diceSize = 6){
 	let floorDiceResult = Math.floor(diceResult) + 1;
 	let ceilDiceResult = Math.ceil(diceResult);
 
-	console.log(floorDiceResult, ceilDiceResult);
+	// console.log(floorDiceResult, ceilDiceResult);
+	return floorDiceResult;
 }
 
 // rollDice(); // diceSize is 6
-rollDice(20); // diceSize is 20 
+// rollDice(20); // diceSize is 20 
 // rollDice(10000); // diceSize is 10000
 
 
 // Function that rolls a dice and the dice is a 6-sided dice 
 // specific dice roller function that calls the generic function 
+const rollD6 = () => rollDice(6);
+
+console.log("RollD6 function result is: " + rollD6());
 
 // Function that rolls a dice and the dice is a 20-sided dice 
 // specific dice roller function that calls the generic function 
+const rollD20 = () => {
+	// let diceResult = rollDice(20);
+	// return diceResult;
+
+	return rollDice(20);
+}
 
 
+let superAwesomeDiceResult = rollD20();
+
+console.log("Super awesome dice result is: " + superAwesomeDiceResult);
 
 
 
