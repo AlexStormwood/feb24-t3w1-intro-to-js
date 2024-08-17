@@ -12,8 +12,11 @@ console.log(rollD20());
 
 
 
-// Function that rolls a dice and the dice size is a parameter 
-// generic dice roller function 
+/**
+ * Function that rolls a dice and the dice size is a parameter 
+ * @param {number} diceSize Size of the dice. This is the maximum number that you can roll.
+ * @returns {number}
+ */
 function rollDice(diceSize = 6){
 	console.log("Dice rolling function has been called with a dice size of " + diceSize);
 
@@ -39,14 +42,20 @@ function rollDice(diceSize = 6){
 // rollDice(10000); // diceSize is 10000
 
 
-// Function that rolls a dice and the dice is a 6-sided dice 
-// specific dice roller function that calls the generic function 
+
+/**
+ * Function that rolls a dice and the dice is a 6-sided dice 
+ * @returns {number}
+ */
 const rollD6 = () => rollDice(6);
 
 console.log("RollD6 function result is: " + rollD6());
 
-// Function that rolls a dice and the dice is a 20-sided dice 
-// specific dice roller function that calls the generic function 
+
+/**
+ * Function that rolls a dice and the dice is a 20-sided dice 
+ * @returns {number}
+ */
 const rollD20 = () => {
 	// let diceResult = rollDice(20);
 	// return diceResult;
@@ -64,6 +73,10 @@ let diceResults;
 
 // let, var, const 
 
+/**
+ * Roll two dice and return the highest result. 
+ * @returns {number}
+ */
 function rollD20WithAdvantage(){
 	let tempDiceResults = [
 		rollD20(),
@@ -101,4 +114,6 @@ diceResultChangeable = rollD20();
 // const cannot be changed after declaration 
 const diceResultConstant = rollD20();
 diceResultConstant = rollD20();
+
+
 
