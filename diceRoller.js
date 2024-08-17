@@ -8,7 +8,7 @@ console.log(rollDice(20));
 
 
 // Not a closure, because rollD20 is a const variable 
-console.log(rollD20());
+// console.log(rollD20());
 
 
 
@@ -112,8 +112,36 @@ var diceResultChangeable = rollD20();
 diceResultChangeable = rollD20();
 
 // const cannot be changed after declaration 
-const diceResultConstant = rollD20();
-diceResultConstant = rollD20();
+// const diceResultConstant = rollD20();
+// diceResultConstant = rollD20();
 
 
 
+const diceRollerSystem = {
+	rollDice: rollDice,
+	rollD20: rollD20,
+	rollD6: rollD6,
+	rollTwentySided: rollD20,
+	advantageD20: rollD20WithAdvantage,
+	nestedStuff: { 
+		nestedRollD20: rollD20,
+		someNestedFunction: () => {
+			console.log(this.nestedRollD20());
+			console.log("hello from a function inside a nested object");
+		},
+		someNestedGoodFunction: function() {
+			console.log(this.nestedRollD20());
+			console.log("Hello from the good nested function");
+		}
+	}
+}
+
+//																object.propertyVariable 
+//																object.propertyFunction() 
+console.log("Rolling D20 with advantage and result is: " + diceRollerSystem.advantageD20());
+
+console.log(this);
+console.log(diceRollerSystem.nestedStuff.someNestedGoodFunction());
+// console.log(diceRollerSystem.nestedStuff.someNestedFunction());
+console.log(Object.keys(diceRollerSystem));
+console.log(Object.keys(diceRollerSystem.nestedStuff));
